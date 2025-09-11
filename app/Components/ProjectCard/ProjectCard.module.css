@@ -1,0 +1,163 @@
+.ProjectCard {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 300px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 30px;
+    border-radius: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+    border: 1px solid transparent;
+    gap: 50px;
+}
+.ProjectCard:hover {
+    background: rgba(255, 255, 255, 0.1);
+
+}
+.flipped {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.imageContainer {
+    height: 260px;
+    aspect-ratio: 1/0.7;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid #fff;
+}
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+}
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.description h1 {
+    font-size: 50px;
+    color: #fff;
+}
+.description p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+}
+.technology {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    font-size: 16px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.buttons button {
+    width: 140px;
+    height: 50px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.buttons button:hover {
+    background: #fff;
+    color: #000;
+}
+.buttons a {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+}
+.buttons a::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    transition: width 0.2s;
+}
+.buttons a:hover::after {
+    width: 0;
+}
+.arrowBoxIcon {
+    color: #fff;
+    width: 18px;
+    height: 18px;
+}
+.buttons a svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+}
+@media (max-width: 860px) {
+    .ProjectCard {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .imageContainer {
+        width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .ProjectCard {
+        padding: 0;
+    }
+    .ProjectCard:hover {
+        background: transparent;
+        border-color: transparent;
+    }
+}
+@media (max-width: 500px) {
+    .ProjectCard {
+        gap: 20px;
+    }
+    .imageContainer {
+        border-radius: 10px;
+    }
+    .description h1 {
+        font-size: 30px;
+    }
+    .description p {
+        font-size: 14px
+    }
+    .technology {
+        font-size: 12px;
+        gap: 10px;
+    }
+
+    .buttons button {
+        width: 110px;
+        height: 40px;
+        font-size: 12px;
+    }
+}

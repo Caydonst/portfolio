@@ -1,0 +1,34 @@
+.navbar {
+    width: 100%;
+    height: 80px;
+    background: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+}
+.inner {
+    width: 100%;
+    max-width: 1140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner h1 {
+    font-size: 30px;
+    color: #fff;
+}
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0 20px;
+    }
+}
+@media (max-width: 500px) {
+    .navbar {
+        height: 60px;
+    }
+    .inner h1 {
+        font-size: 20px;
+    }
+}
