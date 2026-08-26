@@ -1,6 +1,6 @@
 body {
-  background: #000;
-  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
+  font-family: --font-rubik;
 }
 
 * {

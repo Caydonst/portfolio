@@ -1,163 +1,339 @@
-.ProjectCard {
+.project {
     width: 100%;
-    max-width: 1200px;
-    min-height: 300px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding: 30px;
-    border-radius: 30px;
-    transition: 0.3s;
-    cursor: pointer;
-    border: 1px solid transparent;
-    gap: 50px;
-}
-.ProjectCard:hover {
-    background: rgba(255, 255, 255, 0.1);
 
+    padding: 65px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
-.flipped {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-}
-.imageContainer {
-    height: 260px;
-    aspect-ratio: 1/0.7;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    flex-shrink: 0;
-    border: 1px solid #fff;
-}
-.info {
+
+.projectTop {
     display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-direction: column;
-    gap: 20px;
-}
-.description {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.description h1 {
-    font-size: 50px;
-    color: #fff;
-}
-.description p {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.6);
-}
-.technology {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+.number {
+    color: rgba(255, 255, 255, 0.3);
+
+    font-size: 11px;
+
     font-weight: 700;
-    color: #fff;
+
+    letter-spacing: 0.1em;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.title h3 {
+    font-size: clamp(36px, 5vw, 70px);
+
+    font-weight: 500;
+
+    letter-spacing: -0.045em;
+
     line-height: 1;
-    font-size: 16px;
 }
-.buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+
+.title svg {
+    width: 26px;
+
+    color: rgba(255, 255, 255, 0.3);
+
+    transition:
+        transform 0.3s,
+        color 0.3s;
 }
-.buttons button {
-    width: 140px;
-    height: 50px;
-    border: 1px solid #fff;
-    background: transparent;
+
+/* IMAGE */
+
+.imageContainer {
+    width: 100%;
+
+    aspect-ratio: 16 / 8;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #111;
+}
+
+.image {
+    object-fit: cover;
+
+    transition:
+        transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+        filter 0.5s;
+}
+
+.imageOverlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.35)
+    );
+
+    pointer-events: none;
+}
+
+.viewButton {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    height: 48px;
+
+    padding: 0 20px;
+
+    background: rgba(0, 0, 0, 0.8);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 100px;
+
     color: #fff;
-    font-size: 14px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 700;
+
     display: flex;
-    justify-content: center;
     align-items: center;
+
     gap: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background 0.25s,
+        color 0.25s,
+        transform 0.25s;
 }
-.buttons button:hover {
+
+.viewButton svg {
+    width: 15px;
+}
+
+.viewButton:hover {
     background: #fff;
+
     color: #000;
 }
-.buttons a {
-    color: #fff;
+
+/* BOTTOM */
+
+.projectBottom {
+    display: grid;
+
+    grid-template-columns: minmax(250px, 550px) 1fr;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+    margin-top: 25px;
+}
+
+.description {
+    color: rgba(255, 255, 255, 0.5);
+
+    font-size: 15px;
+
+    line-height: 1.65;
+}
+
+.technology {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    gap: 5px;
-    font-size: 14px;
-    font-weight: 700;
-    position: relative;
+
+    justify-content: flex-end;
+
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
 }
-.buttons a::after {
-    content: '';
+
+.technology span {
+    padding: 8px 12px;
+
+    border-radius: 100px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.projectButtons {
     position: absolute;
-    bottom: 8px;
-    left: 0;
-    width: 100%;
-    height: 1px;
+    right: 25px;
+    bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 2;
+}
+
+.viewProjectButton,
+.viewSiteButton {
+    height: 48px;
+
+    padding: 0 20px;
+
+    border-radius: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background 0.25s,
+        color 0.25s,
+        border-color 0.25s,
+        transform 0.25s;
+}
+
+.viewProjectButton {
     background: #fff;
-    transition: width 0.2s;
+    color: #000;
+    border: 1px solid #fff;
 }
-.buttons a:hover::after {
-    width: 0;
-}
-.arrowBoxIcon {
+
+.viewSiteButton {
+    background: rgba(0, 0, 0, 0.8);
     color: #fff;
-    width: 18px;
-    height: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(10px);
 }
-.buttons a svg {
-    width: 18px;
-    height: 18px;
-    fill: #fff;
+
+.viewProjectButton svg,
+.viewSiteButton svg {
+    width: 15px;
+    height: 15px;
 }
-@media (max-width: 860px) {
-    .ProjectCard {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .imageContainer {
-        width: 100%;
-    }
+
+.viewProjectButton:hover,
+.viewSiteButton:hover {
+    transform: translateY(-2px);
 }
-@media (max-width: 600px) {
-    .ProjectCard {
-        padding: 0;
-    }
-    .ProjectCard:hover {
-        background: transparent;
-        border-color: transparent;
-    }
+
+.viewProjectButton:hover {
+    background: rgba(255, 255, 255, 0.85);
 }
-@media (max-width: 500px) {
-    .ProjectCard {
-        gap: 20px;
-    }
-    .imageContainer {
-        border-radius: 10px;
-    }
-    .description h1 {
-        font-size: 30px;
-    }
-    .description p {
-        font-size: 14px
-    }
-    .technology {
-        font-size: 12px;
-        gap: 10px;
+
+.viewSiteButton:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+    .project {
+        padding: 50px 0;
     }
 
-    .buttons button {
-        width: 110px;
+    .imageContainer {
+        aspect-ratio: 16 / 10;
+    }
+
+    .projectBottom {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .technology {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 500px) {
+    .project {
+        padding: 40px 0;
+    }
+
+    .projectTop {
+        gap: 15px;
+
+        margin-bottom: 20px;
+    }
+
+    .title h3 {
+        font-size: 38px;
+    }
+
+    .title svg {
+        width: 20px;
+    }
+
+    .imageContainer {
+        aspect-ratio: 4 / 3;
+
+        border-radius: 12px;
+    }
+
+    .viewButton {
+        right: 15px;
+        bottom: 15px;
+
+        height: 42px;
+
+        padding: 0 15px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .technology span {
+        padding: 7px 10px;
+
+        font-size: 10px;
+    }.projectButtons {
+        right: 15px;
+        bottom: 15px;
+        gap: 7px;
+    }
+
+    .viewProjectButton,
+    .viewSiteButton {
         height: 40px;
-        font-size: 12px;
+        padding: 0 14px;
+        font-size: 11px;
+    }
+
+    .viewProjectButton svg,
+    .viewSiteButton svg {
+        width: 13px;
+        height: 13px;
     }
 }

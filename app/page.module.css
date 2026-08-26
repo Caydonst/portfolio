@@ -1,167 +1,345 @@
 .home {
+    width: 100%;
+    min-height: 100svh;
+    background: #050505;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* ---------------------------------
+   HERO
+---------------------------------- */
+
+.hero {
+    height: calc(100svh - 60px);
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    min-height: 100svh;
-    padding: 0 20px 20px 20px;
-    gap: 20px;
     overflow: hidden;
 }
-.light {
+
+.heroGlow {
     position: absolute;
-    top: 0;
+    width: 900px;
+    height: 500px;
+    top: 15%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    aspect-ratio: 1;
-    border-radius: 50%;
+    transform: translateX(-50%);
+
     background: radial-gradient(
-            circle,
-            rgba(255, 255, 255, 0.1) 0%,
-            rgba(255, 255, 255, 0) 70%
+        ellipse,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.025) 40%,
+        transparent 70%
     );
+
+    filter: blur(20px);
     pointer-events: none;
-    z-index: -1;
 }
-.background {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+
     width: 100%;
-    max-width: 1000px;
-    height: 100%;
-    max-height: 1000px;
+    max-width: 1200px;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 200px;
-    z-index: -1;
-}
-.background div {
-    height: 80%;
-    width: 1px;
-    background: rgba(255, 255, 255, 0.1);
-}
-.background div:nth-child(odd) {
-    height: 60%;
-}
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 200px;
-    padding: 20px 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-.header h1 {
-    font-size: 20px;
-    color: #fff;
-}
-.landingContainer {
-    height: calc(100svh - 80px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
     gap: 10px;
-    position: relative;
-    width: 100%;
+
+    margin-bottom: 30px;
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+
+    color: rgba(255, 255, 255, 0.5);
 }
-.landingContainer p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 12px;
+
+.statusDot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: #fff;
+
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
 }
-.landingContainer h1 {
-    font-size: 60px;
-    color: #fff;
-    width: 100%;
-    max-width: 600px;
+
+.heroContent h1 {
+    font-size: clamp(64px, 8.5vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+
+    max-width: 1150px;
+
+    margin: 0;
+
+    font-weight: 600;
     text-align: center;
 }
-.landingContainer button {
-    width: 200px;
-    height: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: transparent;
-    border-radius: 50px;
-    font-size: 16px;
-    color: #fff;
+
+.heroContent h1 span {
+    color: rgba(255, 255, 255, 0.32);
+}
+
+.heroDescription {
+    max-width: 520px;
+
+    margin-top: 40px;
+
+    color: rgba(255, 255, 255, 0.5);
+
+    font-size: 17px;
+    line-height: 1.65;
+    text-align: center;
+}
+
+.heroActions {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
-    gap: 10px;
+    gap: 12px;
+
+    margin-top: 35px;
 }
-.landingContainer button:hover {
+
+.primaryButton,
+.secondaryButton {
+    height: 52px;
+
+    border-radius: 100px;
+
+    width: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s,
+        color 0.25s,
+        border-color 0.25s,
+        transform 0.25s;
+}
+
+.primaryButton {
+    border: 1px solid rgba(255, 255, 255, 0.3);;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.secondaryButton {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.025);
+    color: #fff;
+}
+
+.primaryButton svg,
+.secondaryButton svg {
+    width: 16px;
+}
+.primaryButton:hover {
+    background: #fff;
+    color: #000;
     border-color: #fff;
 }
-.arrowIcon {
-    color: #fff;
-    width: 20px;
-    height: 20px;
-    transition: 0.3s;
-    stroke-width: 2;
+
+.secondaryButton:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
 }
-.projectList {
+
+.heroBottom {
+    position: absolute;
+
+    left: 40px;
+    right: 40px;
+    bottom: 30px;
+
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+
+    color: rgba(255, 255, 255, 0.3);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+}
+
+.heroBottom button {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    cursor: pointer;
+}
+
+.heroBottom button svg {
+    width: 13px;
+}
+
+/* ---------------------------------
+   PROJECTS
+---------------------------------- */
+
+.projectsSection {
     width: 100%;
-    gap: 50px;
-    padding-top: 20px;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 150px 40px;
 }
-@media (max-width: 1000px) {
-    .light {
+
+.projectsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 60px;
+
+    padding-bottom: 60px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sectionLabel {
+    font-size: 11px;
+
+    letter-spacing: 0.18em;
+
+    color: rgba(255, 255, 255, 0.4);
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.projectsHeader h2 {
+    font-size: clamp(55px, 6vw, 90px);
+
+    font-weight: 500;
+
+    letter-spacing: -0.055em;
+
+    line-height: 1;
+}
+
+.projectsHeader h2 span {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.projectsIntro {
+    max-width: 420px;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    line-height: 1.65;
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+}
+
+.projectList {
+    width: 100%;
+}
+
+/* ---------------------------------
+   RESPONSIVE
+---------------------------------- */
+
+@media (max-width: 900px) {
+    .hero {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .heroContent h1 {
+        font-size: clamp(60px, 12vw, 100px);
+    }
+
+    .projectsSection {
+        padding: 100px 25px;
+    }
+
+    .projectsHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .heroBottom {
+        left: 25px;
+        right: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 100svh;
+
+        padding: 110px 20px 90px;
+    }
+
+    .heroContent h1 {
+        font-size: clamp(50px, 15vw, 72px);
+        line-height: 0.95;
+    }
+
+    .heroDescription {
+        font-size: 14px;
+
+        margin-top: 25px;
+    }
+
+    .heroActions {
         width: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
-}
-@media (max-width: 610px) {
-    .home {
-        gap: 20px;
+
+    .primaryButton,
+    .secondaryButton {
+        height: 48px;
     }
-    .landingContainer h1 {
-        font-size: 40px;
+
+    .heroBottom {
+        left: 20px;
+        right: 20px;
     }
-    .background {
-        gap: 100px;
+
+    .heroBottom > span:first-child {
+        display: none;
     }
-    .background div {
-        height: 50%;
+
+    .projectsSection {
+        padding: 90px 20px;
     }
-    .background div:nth-child(odd) {
-        height: 30%;
-    }
-    .landingContainer button {
-        font-size: 12px;
-        width: 150px;
-        height: 40px;
-    }
-    .arrowIcon {
-        width: 16px;
-        height: 16px;
-    }
-}
-@media (max-width: 500px) {
-    .light {
-        width: 200%;
-    }
-    .header h1 {
-        font-size: 20px;
-    }
-}
-@media (max-width: 400px) {
-    .landingContainer h1 {
-        font-size: 30px;
+
+    .projectsHeader {
+        padding-bottom: 40px;
+        gap: 25px;
     }
 }

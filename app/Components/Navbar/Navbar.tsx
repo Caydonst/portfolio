@@ -5,7 +5,7 @@ export default function Navbar() {
     return (
         <div className={styles.navbar}>
             <div className={styles.inner}>
-                <h1>caydon.dev</h1>
+                <h1>Caydon Thomas</h1>
             </div>
         </div>
     )
