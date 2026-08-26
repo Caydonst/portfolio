@@ -13,7 +13,7 @@ interface ProjectCardProps {
     description: string;
     technology: string[];
     website?: string;
-    slug: string;
+    slug: string | undefined;
 }
 
 export default function ProjectCard({
