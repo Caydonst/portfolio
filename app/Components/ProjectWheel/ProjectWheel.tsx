@@ -93,6 +93,14 @@ export default function ProjectWheel() {
             return;
         }
 
+        // Don't start carousel dragging when clicking
+        // an interactive element.
+        const target = event.target as HTMLElement;
+
+        if (target.closest("a, button")) {
+            return;
+        }
+
         isDragging.current = true;
         hasDragged.current = false;
 
@@ -168,16 +176,6 @@ export default function ProjectWheel() {
 
         track.classList.remove(styles.dragging);
     };
-    const preventClickAfterDrag = (
-        event: React.MouseEvent<HTMLElement>
-    ) => {
-        if (hasDragged.current) {
-            event.preventDefault();
-            event.stopPropagation();
-
-            hasDragged.current = false;
-        }
-    };
 
     return (
         <section className={styles.projectsSection}>
@@ -233,7 +231,6 @@ export default function ProjectWheel() {
                                         <Link
                                             href={`/projects/${project.slug}`}
                                             className={styles.projectButton}
-                                            onClick={preventClickAfterDrag}
                                         >
                                             View Project
                                             <ArrowUpRightIcon />
@@ -245,7 +242,6 @@ export default function ProjectWheel() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className={styles.websiteButton}
-                                                onClick={preventClickAfterDrag}
                                             >
                                                 Live Site
                                                 <ArrowUpRightIcon />

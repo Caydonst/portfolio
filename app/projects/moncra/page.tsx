@@ -261,8 +261,7 @@ export default function MoncraPage() {
                         </div>
 
                         <p>
-                            Equip weapons and armor, compare stats, and manage
-                            your character's gear.
+                            {"Equip weapons and armor, compare stats, and manage your character's gear."}
                         </p>
                     </div>
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Rubik, Manrope } from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,11 +10,6 @@ export const metadata: Metadata = {
 const rubik = Rubik({
   subsets: ['latin'], // required
   variable: '--font-rubik', // optional (for CSS vars)
-})
-
-const maprope = Manrope({
-  subsets: ['latin'], // required
-  variable: '--font-manrope', // optional (for CSS vars)
 })
 
 export default function RootLayout({
